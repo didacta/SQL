@@ -73,5 +73,12 @@ INSERT INTO track (title, album_id) VALUES ("Super Dubstep Track 5", 5);
 
 
 SELECT track.title FROM album;
-SELECT * FROM ALBUM WHERE TITLE LIKE "SUPER D%";
+SELECT * FROM album WHERE TITLE LIKE "SUPER D%";
+SELECT * from album WHERE release_year >=1975 and release_year <= 1990;
 SELECT * FROM album WHERE release_year is NOT NULL;
+SELECT * FROM album WHERE release_year is NULL;
+
+
+SELECT AVG(release_year) FROM album;
+SELECT AVG(release_year) FROM album,artist,artist_album;
+SELECT COUNT(*) FROM artist;
