@@ -1,3 +1,27 @@
+CREATE TABLE album (
+  id INTERGER PRIMARY KEY AUTOINCREMENT,
+  title VARCHAR(128) NOT NULL,
+  release_year INTERGER
+);
+
+CREATE TABLE artist (
+   id INTEGER PRIMARY KEY AUTOINCREMENT,
+   name VARCHAR(128) NOT NULL
+);
+
+CREATE TABLE track (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title VARCHAR(128) NOT NULL,
+  album_id INTEGER REFERENCES album(id)
+);
+
+CREATE TABLE artist_album(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  artist_id INTERGER REFERENCES artist(id),
+  album_id INTEGER REFERENCES album(id)
+)
+
+
 INSERT INTO album (title, release_year) VALUES ("Super Awesome Album", 1990);
 INSERT INTO album (title) VALUES ("Super Funky Album");
 INSERT INTO album (title, release_year) VALUES ("Super Disco Album", 1978);
@@ -43,3 +67,11 @@ INSERT INTO track (title, album_id) VALUES ("Super Dubstep Track 2", 5);
 INSERT INTO track (title, album_id) VALUES ("Super Dubstep Track 3", 5);
 INSERT INTO track (title, album_id) VALUES ("Super Dubstep Track 4", 5);
 INSERT INTO track (title, album_id) VALUES ("Super Dubstep Track 5", 5);
+
+
+
+
+
+SELECT track.title FROM album;
+SELECT * FROM ALBUM WHERE TITLE LIKE "SUPER D%";
+SELECT * FROM album WHERE release_year is NOT NULL;
